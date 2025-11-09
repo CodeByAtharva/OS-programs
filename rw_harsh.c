@@ -180,8 +180,8 @@
 #include<pthread.h>
 #include<unistd.h>
 
-int data=0;
-int readCount=0;
+int data=0; // shared resource 
+int readCount=0; // number of active readers
 
 pthread_mutex_t mutex;
 pthread_mutex_t wrt;
