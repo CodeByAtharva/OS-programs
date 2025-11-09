@@ -1,14 +1,14 @@
-
 /*
 in this program there are two Critical section 
 1. readCount: this Critical section used by the Readers 
- To update the count safely (shared between readers)
+To update the count safely (shared between readers)
 - protected by the mutex
 -no two readers increment/decrement it simultaneously
 
 2. data : Writers and Readers, Writers and Readers
 - protected by the wrt*/
 
+/*
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -27,7 +27,7 @@ pthread_mutex_t mutex;  //mutex ensures that only 1 thread can access the Critic
 | `pthread_mutex_unlock(&mutex);`     | Unlocks the mutex — allows other threads to proceed.         |
 | `pthread_mutex_init(&mutex, NULL);` | Initializes the mutex before using it.                       |
 | `pthread_mutex_destroy(&mutex);`    | Frees resources when done.                                   |
-*/
+
 
 pthread_mutex_t wrt;
 
@@ -100,3 +100,40 @@ int main(){
 
 
 
+*/
+
+
+#include<stdio.h>
+#include<semaphore.h>
+#include<stdlib.h>
+#include<pthread.h>
+
+int main(){
+
+    pthread_mutex_init(&wrt,NULL);
+    pthread_mutex_init(&mutex,NULL);
+
+
+    p_thread_t writer[2];
+    p_thread_t reader[3];
+
+    int wid[2];
+    int rid[3];
+
+    for(int i=0;i<n;i++){
+
+        wid[i]=i;
+        pthread_create(&reader[i],NULL,readerFun,&wid[i]);
+    }
+
+
+    for(int i=0;i<3;i++){
+        rid[i]=i;
+        pthread_create(&writer[i],NULL,writerFun,&rid[i]);
+    }
+
+
+    for(int i)
+
+
+}
