@@ -80,6 +80,12 @@ int main(){
   }
 
   pid_t pid=fork();
+
+  /*fork() is a system call used to create a new process — a child process — that runs alongside the parent process.
+  After this call, two processes start running the same code, but with a different return value from fork():
+  In the parent process, fork() returns the child’s process ID (PID) → a positive integer.
+  In the child process, fork() returns 0.
+  If something goes wrong, it returns -1*/
   
   if(pid<0){
     printf("Something went wrong !");
@@ -93,9 +99,14 @@ int main(){
     printf("Inside the parent process process id :%d\n",getpid());
     printf("Waiting for child to execute !");
     wait(NULL);
+    /*wait(NULL) makes the parent pause its execution until the child process finishes.
+(Without wait(), both might run simultaneously.)*/
     mergeSort(nums,0,n-1);
     printNums(nums,n);
     
   }
   return 0;
 }
+
+/*🧠 Note: The child process has its own copy of the array nums.
+Changes made by the child don’t affect the parent’s array (they exist in separate memory spaces).*/
