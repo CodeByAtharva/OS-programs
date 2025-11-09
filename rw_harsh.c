@@ -8,7 +8,7 @@ To update the count safely (shared between readers)
 2. data : Writers and Readers, Writers and Readers
 - protected by the wrt*/
 
-/*
+
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -27,7 +27,7 @@ pthread_mutex_t mutex;  //mutex ensures that only 1 thread can access the Critic
 | `pthread_mutex_unlock(&mutex);`     | Unlocks the mutex — allows other threads to proceed.         |
 | `pthread_mutex_init(&mutex, NULL);` | Initializes the mutex before using it.                       |
 | `pthread_mutex_destroy(&mutex);`    | Frees resources when done.                                   |
-
+*/
 
 pthread_mutex_t wrt;
 
@@ -100,7 +100,7 @@ int main(){
 
 
 
-*/
+/*
 
 
 #include<stdio.h>
@@ -137,3 +137,4 @@ int main(){
 
 
 }
+*/
