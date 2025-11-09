@@ -42,7 +42,7 @@ int main() {
 
         // Prepare arguments for execve
         char *args[n + 2]; // +2 for program name and NULL terminator
-        args[0] = "./reverse.c"; // name of program to execute
+        args[0] = "./reverse"; // name of program to execute
 
         for (int i = 0; i < n; i++) {
             char *num_str = malloc(10);
